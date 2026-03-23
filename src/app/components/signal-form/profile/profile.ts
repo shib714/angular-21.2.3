@@ -12,7 +12,6 @@ export interface Profile {
     hasEmergencyContact: boolean,
     emergencyContactName: string,
     emergencyContactPhone: string,
-
 }
 
 export const defaultProfile: Profile = {
@@ -93,6 +92,17 @@ const passwordValidationSchema = schema<{password: string, confirmPassword: stri
         }
         return null;
     })
+
+    //alternatively ; see https://angular.dev/guide/forms/signals/validation
+    // validate(path.confirmPassword, ({value, valueOf}) => {
+    //     const confirmPassword = value();
+    //     const password = valueOf(path.password);
+    //     if(confirmPassword !== password) {
+    //         return {kind: 'passwordMismatch', message: 'Password does not match'};
+    //     }
+    //     return null;
+    // })
+
 })
 
 const dateOfBirthValidationSchema = schema<{ dateOfBirth: string }>((path) => {
