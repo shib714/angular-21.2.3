@@ -1,6 +1,22 @@
 # Angular2123
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.3.
+- Demonstrates the use of Angular Signal form (Profile Form).
+- The Profile form model is an interface with the following constract:
+
+- export interface Profile {
+    userName: string,
+    firstName: string,
+    lastName: string,
+    dateOfBirth: string,
+    password: string,
+    confirmPassword: string,
+    hasEmergencyContact: boolean,
+    emergencyContactName: string,
+    emergencyContactPhone: string,
+}
+-  Each field in the form has it's own validation rule demonstrating various validation techniques and custom validation ( such as required, min(), minLength(), pattern(), validate(), validateTree(),cross-field validation) including username validation implemented using new validateHttp() against remote REST API end point https://jsonplaceholder.typicode.com/users
+-  Form submission logic 
 
 ## Development server
 
