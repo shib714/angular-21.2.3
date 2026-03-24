@@ -2,8 +2,12 @@
     <button mat-icon-button aria-label="nav icon-button with menu icon" (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
     </button>
-    <span>Signal forms in Angular 21 with unit test </span>
+    <span>Signal forms, Shopping Cart in Angular 21 with unit test </span>
     <span class="nav-spacer"></span>
+    <button mat-icon-button routerLink="cart">
+        <span matBadge="{{cartItems().length}}" matBadgePosition="after" matBadgeOverlap="false"
+            matBadgeColor="primary"><mat-icon>shopping_cart</mat-icon></span>
+    </button>
     <button mat-icon-button class="nav-icon" aria-label="nav icon-button with share icon">
         <mat-icon>logout</mat-icon>
     </button>
@@ -27,25 +31,6 @@
                 <mat-icon>home</mat-icon> Home</mat-list-item>
             <mat-divider></mat-divider>
         </mat-list>
-        <!-- Dynamic component with content with Angular 20 and unit tests-->
-        <mat-list role="list">
-            <mat-list-item routerLink="dynamic-app" routerLinkActive="active">Dynamic component
-            </mat-list-item>
-            <mat-divider></mat-divider>
-        </mat-list>
-        <!-- Signal Form example 1 -->
-        <mat-list role="list">
-            <mat-list-item routerLink="form-submission-example" routerLinkActive="active">Signal Form Submission
-            </mat-list-item>
-            <mat-divider></mat-divider>
-        </mat-list>
-        <!-- Signal Form example 1 -->
-        <mat-list role="list">
-            <mat-list-item routerLink="subscribe-form" routerLinkActive="active">Subscribe Signal Form
-            </mat-list-item>
-            <mat-divider></mat-divider>
-        </mat-list>
-
         <!-- Signal Form example 2 -->
         <mat-list role="list">
             <mat-list-item routerLink="profile-form" routerLinkActive="active">Profile Signal Form
@@ -61,12 +46,11 @@
         </mat-list>
 
         <mat-list role="list">
-            <mat-list-item routerLink="contacts" routerLinkActive="active">
-                <mat-icon>contacts</mat-icon> Contacts</mat-list-item>
+            <mat-list-item routerLink="sw-app" routerLinkActive="active">SW Vehicle</mat-list-item>
             <mat-divider></mat-divider>
         </mat-list>
         <mat-list role="list">
-            <mat-list-item routerLink="sw-app" routerLinkActive="active">SW Vehicle</mat-list-item>
+            <mat-list-item routerLink="product-list" routerLinkActive="active">Shopping Cart</mat-list-item>
             <mat-divider></mat-divider>
         </mat-list>
     </mat-drawer>

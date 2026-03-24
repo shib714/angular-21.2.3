@@ -1,0 +1,31 @@
+   .cart-page-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+    .cart-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .empty-cart-actions {
+      padding-top: 1rem;
+    }
+
+    /* Responsive adjustment for smaller screens */
+    @media (max-width: 992px) {
+      .cart-page-container {
+        grid-template-columns: 1fr;
+      }
+    }

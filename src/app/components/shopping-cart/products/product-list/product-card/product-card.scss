@@ -1,0 +1,34 @@
+:host {
+  display: flex;
+  height: 100%;
+}
+
+mat-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  mat-card-header {
+    flex-shrink: 0;
+  }
+
+  mat-card-content {
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+
+  mat-card-actions {
+    flex-shrink: 0;
+  }
+}
+
+img[mat-card-image] {
+  object-fit: scale-down;
+  object-position: center;  
+  width: 125px;
+  padding: 1rem;
+}
+.price{
+  font-weight: bold;
+  font-size: 1.1rem;
+}

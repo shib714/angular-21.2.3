@@ -1,0 +1,42 @@
+:host {
+  display: block;
+}
+
+mat-card-title.text-center {
+  margin: 0 auto;
+  padding: 0.5rem 0;
+}
+
+.summary-list,
+.summary-total {
+  padding: 1rem 0;
+}
+
+.summary-list dl,
+.summary-total dl {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.summary-list dt {
+  color: #666;
+}
+
+.summary-total dt,
+.summary-total dd {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.text-green {
+  color: #28a745;
+}
+
+.summary-actions {
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 1rem !important; // Override default mat-card-actions padding
+}

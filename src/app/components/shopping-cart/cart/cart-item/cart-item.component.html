@@ -1,0 +1,26 @@
+@if (item(); as item) {
+<div class="cart-item-container">
+  <img class="item-image" [src]="item.product.image" [alt]="item.product.title">
+
+  <div class="item-details">
+    <div class="item-title">{{ item.product.title }}</div>
+    <div class="item-price">{{ item.product.price | currency:'USD' }}</div>
+  </div>
+
+  <div class="item-controls">
+    <div class="quantity-control">
+      <button mat-icon-button (click)="decrementItem()" [disabled]="item.quantity === 1">
+        <mat-icon>remove</mat-icon>
+      </button>
+      <span>{{ item.quantity }}</span>
+      <button mat-icon-button (click)="incrementItem()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <div class="item-total">{{ exPrice() | currency:'USD':'symbol' }}</div>
+    <button mat-icon-button color="warn" (click)="removeItem()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>
+}

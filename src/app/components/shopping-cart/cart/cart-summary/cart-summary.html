@@ -1,0 +1,36 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="text-center">Order summary</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="summary-list">
+      <dl>
+        <dt>Original price</dt>
+        <dd>{{ subTotal() | currency }}</dd>
+      </dl>
+      <dl>
+        <dt>Savings</dt>
+        <dd class="text-green">{{savings() | currency}}</dd>
+      </dl>
+      <dl>
+        <dt>Delivery Fee</dt>
+        <dd>{{deliveryFee() | currency}}</dd>
+      </dl>
+      <dl>
+        <dt>Tax</dt>
+        <dd>{{tax() | currency}}</dd>
+      </dl>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="summary-total">
+      <dl>
+        <dt>Total</dt>
+        <dd>{{ totalPrice() | currency }}</dd>
+      </dl>
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="summary-actions">
+    <button mat-stroked-button color="primary" routerLink="/product-list">Continue Shopping</button>
+    <button mat-flat-button color="primary">Checkout</button>
+  </mat-card-actions>
+</mat-card>

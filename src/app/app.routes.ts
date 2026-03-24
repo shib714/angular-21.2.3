@@ -12,14 +12,26 @@ export const routes: Routes = [
         loadComponent: () => import('./components/home/home')
             .then((m) => m.Home), title: 'Home'
     },
-        {
+    {
         path: 'profile-form',
         loadComponent: () => import('./components/signal-form/profile/profile-form/profile-form')
             .then((m) => m.ProfileForm), title: 'Profile Signal Form'
     },
-        {
+    {
         path: 'sw-app', loadComponent: () => import('./components/swapi-vehicles/vehicles/vehicle-app')
             .then((m) => m.VehiclesApp), title: 'SW Vehicles'
+    },
+
+    {
+        path: 'product-list',
+        loadComponent: () => import('./components/shopping-cart/products/product-list/product-list')
+            .then((m) => m.ProductList), title: 'Sgopping Cart App'
+    },
+
+    {
+        path: 'cart',
+        loadComponent: () => import('./components/shopping-cart/cart/cart-list/cart-list')
+            .then((m) => m.CartList), title: 'Sgopping Cart'
     },
 
 

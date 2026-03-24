@@ -9,10 +9,12 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { Theme } from '../theme';
+import { CartService } from '../../components/shopping-cart/cart/cart.service';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @Component({
   selector: 'app-nav',
-  imports: [RouterLink, 
+  imports: [RouterLink,
     RouterOutlet,
     MatToolbarModule,
     MatButtonModule,
@@ -20,13 +22,16 @@ import { Theme } from '../theme';
     MatSidenavModule,
     MatListModule,
     MatMenuModule,
-    TitleCasePipe],
+    TitleCasePipe, 
+    MatBadgeModule],
   templateUrl: './nav.html',
   styleUrl: './nav.scss'
 })
 export class Nav {
-    private document = inject(DOCUMENT);
+  private document = inject(DOCUMENT);
   protected themeService = inject(Theme);
+  protected cartService = inject(CartService);  
+  cartItems = this.cartService.cartItems;
 
   onThemeChange(event: MatSlideToggleChange) {
     this.document.body.classList.toggle('dark');
