@@ -1,0 +1,27 @@
+
+mat-card {
+    margin: 10px auto;
+    padding: 15px;
+    font-size: 14px;
+}
+mat-card-title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+    
+.label-value-pair {
+    padding: 4px 0 4px 0;
+}
+.label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+.value {
+    color: gray;
+    align-self: flex-end;
+}

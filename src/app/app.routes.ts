@@ -17,6 +17,10 @@ export const routes: Routes = [
         loadComponent: () => import('./components/signal-form/profile/profile-form/profile-form')
             .then((m) => m.ProfileForm), title: 'Profile Signal Form'
     },
+        {
+        path: 'sw-app', loadComponent: () => import('./components/swapi-vehicles/vehicles/vehicle-app')
+            .then((m) => m.VehiclesApp), title: 'SW Vehicles'
+    },
 
 
 ];

@@ -1,0 +1,44 @@
+@if (item(); as cartItem) {
+<mat-card appearance="filled">
+  <mat-card-header>
+    <mat-card-title>Cart Item</mat-card-title>
+    <span class="spacer"></span>
+    <button mat-icon-button color="warn" aria-label="nav icon-button with delete icon" (click)="onRemove()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-header>
+
+  <mat-card-content class="label-value-pair">
+    <span class="label">Name:</span>
+    <span class="value">{{cartItem.vehicle.name}}</span>
+  </mat-card-content>
+
+  <mat-card-content class="label-value-pair">
+    <span class="label"> Class: </span>
+    <span class="value">{{cartItem.vehicle.vehicle_class}}</span>
+  </mat-card-content>
+  <mat-card-content class="label-value-pair">
+    <span class="label">Price (credits):</span>
+    <span class="value">{{price() | currency:'USD':'symbol'}}</span>
+  </mat-card-content>
+  <mat-card-content class="label-value-pair">
+    <span class="label">Quantity:</span>
+    <span class="value">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Select a quantity</mat-label>
+        <mat-select [ngModel]="cartItem.quantity" (selectionChange)="onSelectionChange($any($event.source).value)">
+          @for (q of qtyArr(); track q) {
+          <mat-option [value]="q" >{{ q }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </span>
+  </mat-card-content>
+  <mat-card-content class="label-value-pair">
+    <span class="label">Cost:</span>
+    <span class="value">{{exPrice() | currency:'USD':'symbol'}}</span>
+  </mat-card-content>
+</mat-card>
+
+}

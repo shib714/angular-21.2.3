@@ -1,0 +1,36 @@
+@if (cartItems().length; ) {
+    <mat-card appearance="filled" >
+      <mat-card-title-group>
+        <mat-card-title >Cart Summary</mat-card-title>
+        <mat-card-subtitle>Total Items: {{cartItems().length}}</mat-card-subtitle>  
+        <mat-card-subtitle>Total Quantity: {{cartCount()}}</mat-card-subtitle>       
+      </mat-card-title-group>
+       <mat-divider></mat-divider>
+      <mat-card-content class="label-value-pair">
+        <span class="label">Subtotal:</span>
+        <span class="value">{{subTotal()| currency:'USD':'symbol'}}</span>
+      </mat-card-content>
+      <mat-card-content class="label-value-pair">
+        <span class="label">Delivery:</span>
+        @if (deliveryFee(); as deliveryFee) {
+        <span class="value">{{deliveryFee | currency:'USD':'symbol'}}</span>
+        } @else if(!(deliveryFee())) {
+        <span class="value" style='color:red'>Free</span>
+        }
+      </mat-card-content>
+      <mat-card-content class="label-value-pair">
+        <span class="label">Estimated Tax:</span>
+        <span class="value">{{tax() | currency:'USD':'symbol'}}</span>
+      </mat-card-content>
+      <mat-card-content class="label-value-pair">
+        <span class="label">Total Cost:</span>
+        <span class="value"><b>{{totalPrice() | currency:'USD':'symbol'}}</b></span>
+      </mat-card-content>
+    </mat-card>
+
+} @else {
+<p noItems> No items in cart</p>
+}
+<ng-template #noItems>
+  No items in cart
+</ng-template>

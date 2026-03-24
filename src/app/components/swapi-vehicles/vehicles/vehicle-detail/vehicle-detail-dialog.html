@@ -1,0 +1,46 @@
+@if (vehicle(); as vehicle) {
+<mat-dialog-content>
+    <mat-card appearance="outlined">
+        <mat-card-header>
+            <mat-card-title mat-dialog-title>Name: {{pageTitle()}} </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content class="label-value-pair">
+            <span class="label">Price (credits):</span>
+            <span class="value">{{vehicle.cost_in_credits | currency:'USD':'symbol'}}</span>
+        </mat-card-content>
+        <mat-card-content class="label-value-pair">
+            <span class="label">Classification:</span>
+            <span class="value">{{vehicle.vehicle_class}}</span>
+        </mat-card-content>
+        <mat-card-content class="label-value-pair">
+            <span class="label">Crew:</span>
+            <span class="value">{{vehicle.crew}}</span>
+        </mat-card-content>
+        <mat-card-content class="label-value-pair">
+            <span class="label">Passengers:</span>
+            <span class="value">{{vehicle.passengers}} </span>
+        </mat-card-content>
+        <mat-card-content class="label-value-pair">
+            <span class="label">Cargo Capacity:</span>
+            <span class="value">{{vehicle.cargo_capacity}}</span>
+        </mat-card-content>
+        <mat-card-content class="label-value-pair">
+            <span class="label">Films:</span>
+            <span class="value">
+                <ul>
+                    @for (film of vehicleFilms(); track film) {
+                    <li>{{film.title}}</li>
+                    }
+                </ul>
+            </span>
+        </mat-card-content>
+    </mat-card>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-flat-button class='primary' (click)="addToCart(vehicle)">Add to Cart
+    </button>
+    <button mat-raised-button class='warn' [mat-dialog-close]="true">Close</button>
+</mat-dialog-actions>
+}

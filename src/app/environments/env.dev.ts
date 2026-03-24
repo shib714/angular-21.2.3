@@ -1,5 +1,7 @@
 export const environment = {
-    USER_URL: 'https://jsonplaceholder.typicode.com/users'
+    USER_URL: 'https://jsonplaceholder.typicode.com/users',
+    VEHICLE_URL: 'https://swapi.dev/api/vehicles',
+    FILMS_URL: 'https://swapi.dev/api/films'
 };
 
 //Not being used in this App; provided here just for sample data
