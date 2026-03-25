@@ -1,5 +1,51 @@
+/**
+By Gemini                                                                                                         │    
+The existing launch.json is configured for Karma (which uses port 9876). Since this project uses the modern     │    
+Vitest runner in Angular 21, I'll update it with more useful configurations for debugging both your             │    
+application and your Vitest tests.                                                                              │    
+
+I'll add:                                                                                                       │    
+1. "Debug Tests (Vitest UI)": Opens the interactive dashboard.                                                 │    
+2. "Debug Current Test File": A configuration that runs only the test file you currently have open in VS       │    
+     Code.                                                                                                       │    
+3. "Debug Application": An updated version for your Angular 21 app.                                            │    
+                                                                                                                   │    
+I've set up the launch.json file for your project with the following configurations.                              │    
+To access these, go to the Run  and Debug tab in VS Code (Ctrl+Shift+D).                                          │    
+                                                                                                                  │    
+Available Debug Configurations:                                                                                 │    
+1. Vitest: Debug Current File:                                                                                 │    
+   * How to use: Open your test file (e.g., shopping-cart.integration.spec.ts) in the editor. Set a           │    
+     breakpoint by                                                                                                       │    
+         clicking to the left of a line number. Then, select this configuration and press F5.                     │    
+        * Best for: Precision debugging. It will only run the test file you are currently looking at and will      │    
+     pause at                                                                                                            │    
+          your breakpoints.                                                                                        │    
+                                                                                                                   │    
+    2. Vitest: UI Mode:                                                                                            │    
+        * How to use: Select this and press F5.                                                                    │    
+        * Best for: A visual overview of all tests. It opens the Vitest dashboard where you can interactively run  │    
+     and                                                                                                                 │    
+         inspect tests.                                                                                           │    
+                                                                                                                  │    
+   3. Vitest: Debug All Tests:                                                                                    │    
+       * Best for: Running your entire test suite with the debugger attached.                                     │    
+                                                                                                                  │    
+    4. Angular: Serve App (Chrome):                                                                                │    
+       * How to use: Ensure your app is running (with npm start or ng serve) and then select this to debug the    │    
+          application logic itself in a Chrome window.                                                             │    
+                                                                                                                  │    
+  Debugging Pro-Tip:                                                                                              │    
+   Since you are using Vitest, the debugger works instantly with standard Node breakpoints. You can also use       │    
+   console.log() in your tests, and the output will appear directly in your Integrated Terminal in VS Code. 
+
+
+ I'll merge the original configurations back into the launch.json file so you  
+  have both available. Note that the original ng test (Karma-based) might not   
+  work with your current Vitest setup, but I'll keep it there as requested.  
+
+**/
 {
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387                 │
   "version": "0.2.0",
   "configurations": [
     {
@@ -10,81 +56,11 @@
       "url": "http://localhost:4200/"
     },
     {
-      "name": "ng test",
+      "name": "ng test (Karma Legacy)",
       "type": "chrome",
       "request": "launch",
       "preLaunchTask": "npm: test",
       "url": "http://localhost:9876/debug.html"
-    }
-  ]
-}
-/**
-  The existing launch.json is configured for Karma (which uses port 9876). Since your project uses the modern
-  Vitest runner in Angular 21, I'll update it with more useful configurations for debugging both your
-  application and your Vitest tests.
-
-  I'll add:
-   1. "Debug Tests (Vitest UI)": Opens the interactive dashboard.
-   2. "Debug Current Test File": A configuration that runs only the test file you currently have open in VS  
-      Code.
-   3. "Debug Application": An updated version for your Angular 21 app.
-
-│  1 - {                                                                                                │
-│  2 -   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387                 │
-│  3 -   "version": "0.2.0",                                                                            │
-│  4 -   "configurations": [                                                                            │
-│  5 -     {                                                                                            │
-│  6 -       "name": "ng serve",                                                                        │
-│  7 -       "type": "chrome",                                                                          │
-│  8 -       "request": "launch",                                                                       │
-│  9 -       "preLaunchTask": "npm: start",                                                             │
-│ 10 -       "url": "http://localhost:4200/"                                                            │
-│ 11 -     },                                                                                           │    
-│ 12 -     {                                                                                            │    
-│ 13 -       "name": "ng test",                                                                         │    
-│ 14 -       "type": "chrome",                                                                          │    
-│ 15 -       "request": "launch",                                                                       │    
-│ 16 -       "preLaunchTask": "npm: test",                                                              │    
-│ 17 -       "url": "http://localhost:9876/debug.html"                                                  │    
-│ 18 -     }                                                                                            │    
-│ 19 -   ]                                                                                              │    
-│ 20 - } 
-I've set up the launch.json file for your project with the following configurations. 
-To access these, go to the Run  and Debug tab in VS Code (Ctrl+Shift+D).
-
-  Available Debug Configurations:
-   1. Vitest: Debug Current File:
-       * How to use: Open your test file (e.g., shopping-cart.integration.spec.ts) in the editor. Set a breakpoint by  
-         clicking to the left of a line number. Then, select this configuration and press F5.
-       * Best for: Precision debugging. It will only run the test file you are currently looking at and will pause at  
-         your breakpoints.
-
-   2. Vitest: UI Mode:
-       * How to use: Select this and press F5.
-       * Best for: A visual overview of all tests. It opens the Vitest dashboard where you can interactively run and   
-         inspect tests.
-
-   3. Vitest: Debug All Tests:
-       * Best for: Running your entire test suite with the debugger attached.
-
-   4. Angular: Serve App (Chrome):
-       * How to use: Ensure your app is running (with npm start or ng serve) and then select this to debug the
-         application logic itself in a Chrome window.
-
-  Debugging Pro-Tip:
-  Since you are using Vitest, the debugger works instantly with standard Node breakpoints. You can also use
-  console.log() in your tests, and the output will appear directly in your Integrated Terminal in VS Code.
-
-
-{
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Launch Edge",
-      "request": "launch",
-      "type": "msedge",
-      "url": "http://localhost:8080",
-      "webRoot": "${workspaceFolder}"
     },
     {
       "name": "Angular: Serve App (Chrome)",
@@ -137,4 +113,3 @@ To access these, go to the Run  and Debug tab in VS Code (Ctrl+Shift+D).
     }
   ]
 }
-**/
