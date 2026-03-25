@@ -3,8 +3,8 @@
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.3.
 - Demonstrates the use of Angular Signal form (Profile Form).
 - The Profile form model is an interface with the following constract:
-
-- export interface Profile {
+```bash
+export interface Profile {
     userName: string,
     firstName: string,
     lastName: string,
@@ -15,6 +15,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
     emergencyContactName: string,
     emergencyContactPhone: string,
 }
+```
 -  Each field in the form has it's own validation rule demonstrating various validation techniques and custom validation ( such as required, min(), minLength(), pattern(), validate(), validateTree(),cross-field validation) including username validation implemented using new validateHttp() against remote REST API end point https://jsonplaceholder.typicode.com/users
 -  Form submission logic 
 
@@ -24,6 +25,10 @@ To start a local development server, run:
 
 ```bash
 ng serve
+```
+OR
+```bash
+npm start
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
@@ -59,6 +64,32 @@ To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use th
 ```bash
 ng test
 ```
+# Run a single test file
+- Pass the path to the specific .spec.ts file:
+```bash
+ng test --include src/app/app.spec.ts
+```
+# Additional options
+
+- Run once and exit (No watch mode):
+```bash
+ng test --include src/app/app.spec.ts --no-watch
+```
+# Run a specific test case or suite:
+Use the --filter flag to match a specific test or suite name (regex):
+```bash
+ng test --filter "AppComponent"
+```
+# Open Vitest UI:
+- If you want an interactive UI to select and run tests (install :@vitest/ui)
+```bash
+ng test --ui
+```
+
+
+
+
+
 
 ## Running end-to-end tests
 

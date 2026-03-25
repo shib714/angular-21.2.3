@@ -26,6 +26,6 @@ describe('App', () => {
     fixture.detectChanges();
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.textContent).toContain('Signal forms in Angular 21 with unit test');
+    expect(compiled.textContent).toContain('Signal forms, Shopping Cart in Angular 21 with unit test');
   });
 });

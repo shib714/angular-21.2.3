@@ -58,7 +58,6 @@ describe('ProductService', () => {
         let result: IProduct[] = [];
 
         service.products$.subscribe((data) => (result = data));
-
         const req = httpMock.expectOne(environment.PRODUCTS_URL);
         expect(req.request.method).toBe('GET');
 
@@ -73,7 +72,6 @@ describe('ProductService', () => {
                 rating: { rate: 4, count: 10 }
             }
         ]);
-
         expect(result.length).toBe(1);
         expect(result[0].quantity).toBe(1);
     });
@@ -110,9 +108,7 @@ describe('ProductService', () => {
     it('should set selectedProduct when productSelected is called', () => {
         const req = httpMock.expectOne(environment.PRODUCTS_URL);
         req.flush(mockProducts);
-
         service.productSelected(2);
-
         expect(service.selectedProduct()?.id).toBe(2);
     });
 });

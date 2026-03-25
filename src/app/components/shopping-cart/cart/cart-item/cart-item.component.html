@@ -4,7 +4,7 @@
 
   <div class="item-details">
     <div class="item-title">{{ item.product.title }}</div>
-    <div class="item-price">{{ item.product.price | currency:'USD' }}</div>
+    <div class="item-price">{{ price() | currency:'USD' }}</div>
   </div>
 
   <div class="item-controls">

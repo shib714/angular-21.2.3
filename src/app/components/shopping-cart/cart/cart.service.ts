@@ -14,8 +14,6 @@ export class CartService {
     subTotal = computed(() =>
         this.cartItems().reduce((total, item) => total + (item.quantity * Number(item.product.price)), 0));
 
-
-
     // Delivery is free if spending more than 100,000 credits
     deliveryFee = computed(() => this.subTotal() < 100 ? 10 : 0);
 
@@ -24,9 +22,6 @@ export class CartService {
     discountedTotal = computed(() =>
         this.cartCount() > 3 ? this.subTotal() * 0.95 : this.subTotal()
     );
-
-
-
     // Tax could be based on shipping address zip code
     //tax = computed(() => Math.round(this.subTotal() * 13.00) / 100);
     tax = computed(() => +(this.subTotal() * 0.13).toFixed(2));
@@ -37,7 +32,6 @@ export class CartService {
     // Add the product to the cart 
     // If the item is already in the cart, increase the quantity
     addToCart(product: IProduct): void {
-
         // Check if the product is already in the cart
         // Find the index of the product in the cart
         const index = this.cartItems().findIndex(item => item.product.id === product.id);
@@ -53,7 +47,6 @@ export class CartService {
             //       { ...items[index], quantity: items[index].quantity + 1 },
             //       ...items.slice(index + 1)
             //     ]);
-
             this.cartItems.update(items =>
                 items.map((item, i) =>
                     i === index ? { ...item, quantity: item.quantity + 1 } : item
@@ -68,7 +61,6 @@ export class CartService {
         this.cartItems.update(items => items.filter(item =>
             item.product.id !== cartItem.product.id));
     }
-
     updateInCart(cartItem: CartItem, quantity: number) {
         // Update the cart with a new array containing
         // the updated item and all other original items
@@ -76,7 +68,6 @@ export class CartService {
             items.map(item => item.product.id === cartItem.product.id ?
                 { product: cartItem.product, quantity } : item));
     }
-
     clearCart() {
         this.cartItems.set([]);
     }
