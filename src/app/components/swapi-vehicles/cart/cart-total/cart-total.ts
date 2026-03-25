@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'cart-total',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatDividerModule, RouterLink],
+  imports: [CommonModule, MatCardModule, MatDividerModule],
   templateUrl: './cart-total.html',
   styleUrls: ['./cart-total.scss'],
 })
