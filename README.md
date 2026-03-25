@@ -85,10 +85,16 @@ ng test --filter "AppComponent"
 ```bash
 ng test --ui
 ```
+# Run tests with a code coverage report 
+- The first time you run with --coverage, you might be prompted to install a coverage provider. Run npm install -D @vitest/coverage-v8
+```bash
+ng test --coverage
+```
+- Include/Exclude files: Filter which files are included in the coverage calculation.
 
-
-
-
+```bash
+ng test --coverage --coverage-include "src/app/services/**" --coverage-exclude "**/*.spec.ts"
+```
 
 
 ## Running end-to-end tests
