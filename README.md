@@ -1,5 +1,4 @@
-# Angular2123
-
+# Angular21.2.3
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.3.
 - Demonstrates the use of Angular Signal form (Profile Form).
 - The Profile form model is an interface with the following constract:
@@ -19,7 +18,7 @@ export interface Profile {
 ```
 -  Each field in the form has it's own validation rule demonstrating various validation techniques and custom validation ( such as required, min(), minLength(), pattern(), validate(), validateTree(),cross-field validation) including username validation implemented using new validateHttp() against remote REST API end point https://jsonplaceholder.typicode.com/users
 -  Form submission logic 
--Shopping cart example with unit tests
+-  Shopping Cart example with unit tests
 
 ## Development server
 
@@ -80,7 +79,7 @@ ng test --filter "AppComponent"
 ng test --ui
 ```
 ## Run tests with a code coverage report 
-- The first time you run with --coverage, you might be prompted to install a coverage provider. Run npm install -D @vitest/coverage-v8
+- The command below  will run all tests and generate a coverage report (usually in a coverage/ directory). The first time you run with --coverage, you might be prompted to install a coverage provider. Run npm install -D @vitest/coverage-v8 to install it. 
 ```bash
 ng test --coverage
 ```
