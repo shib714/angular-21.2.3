@@ -21,7 +21,7 @@ export const routes: Routes = [
         path: 'sw-app', loadComponent: () => import('./components/swapi-vehicles/vehicles/vehicle-app')
             .then((m) => m.VehiclesApp), title: 'SW Vehicles'
     },
-
+    
     {
         path: 'product-list',
         loadComponent: () => import('./components/shopping-cart/products/product-list/product-list')

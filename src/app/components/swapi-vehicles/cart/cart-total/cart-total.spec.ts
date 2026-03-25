@@ -53,16 +53,18 @@ describe('CartTotal', () => {
 
     const card = fixture.debugElement.query(By.css('mat-card'));
     expect(card).toBeTruthy();
-    
+
     const subtitle = fixture.debugElement.queryAll(By.css('mat-card-subtitle'));
     expect(subtitle[0].nativeElement.textContent).toContain('Total Items: 1');
     expect(subtitle[1].nativeElement.textContent).toContain('Total Quantity: 2');
 
-    const values = fixture.debugElement.queryAll(By.css('.value'));
-    expect(values[0].nativeElement.textContent).toContain('$1,000.00'); // Subtotal
-    expect(values[1].nativeElement.textContent).toContain('$999.00');  // Delivery
-    expect(values[2].nativeElement.textContent).toContain('$107.50');  // Tax
-    expect(values[3].nativeElement.textContent).toContain('$2,106.50'); // Total
+    const listValues = fixture.debugElement.queryAll(By.css('.summary-list .value'));
+    expect(listValues[0].nativeElement.textContent).toContain('$1,000.00'); // Subtotal
+    expect(listValues[1].nativeElement.textContent).toContain('$999.00');  // Delivery
+    expect(listValues[2].nativeElement.textContent).toContain('$107.50');  // Tax
+
+    const totalValue = fixture.debugElement.query(By.css('.summary-total dd'));
+    expect(totalValue.nativeElement.textContent).toContain('$2,106.50'); // Total
   });
 
   it('should display "Free" when delivery fee is 0', () => {
@@ -72,8 +74,7 @@ describe('CartTotal', () => {
     
     fixture.detectChanges();
 
-    const deliverySpan = fixture.debugElement.queryAll(By.css('.label-value-pair'))[1];
-    const valueSpan = deliverySpan.query(By.css('.value'));
+    const valueSpan = fixture.debugElement.queryAll(By.css('.summary-list .value'))[1];
     expect(valueSpan.nativeElement.textContent).toContain('Free');
     expect(valueSpan.nativeElement.style.color).toBe('red');
   });

@@ -1,35 +1,53 @@
 @if (cartItems().length; ) {
-    <mat-card appearance="filled" >
-      <mat-card-title-group>
-        <mat-card-title >Cart Summary</mat-card-title>
-        <mat-card-subtitle>Total Items: {{cartItems().length}}</mat-card-subtitle>  
-        <mat-card-subtitle>Total Quantity: {{cartCount()}}</mat-card-subtitle>       
-      </mat-card-title-group>
-       <mat-divider></mat-divider>
-      <mat-card-content class="label-value-pair">
-        <span class="label">Subtotal:</span>
-        <span class="value">{{subTotal()| currency:'USD':'symbol'}}</span>
-      </mat-card-content>
-      <mat-card-content class="label-value-pair">
-        <span class="label">Delivery:</span>
-        @if (deliveryFee(); as deliveryFee) {
-        <span class="value">{{deliveryFee | currency:'USD':'symbol'}}</span>
-        } @else if(!(deliveryFee())) {
-        <span class="value" style='color:red'>Free</span>
-        }
-      </mat-card-content>
-      <mat-card-content class="label-value-pair">
-        <span class="label">Estimated Tax:</span>
-        <span class="value">{{tax() | currency:'USD':'symbol'}}</span>
-      </mat-card-content>
-      <mat-card-content class="label-value-pair">
-        <span class="label">Total Cost:</span>
-        <span class="value"><b>{{totalPrice() | currency:'USD':'symbol'}}</b></span>
-      </mat-card-content>
-    </mat-card>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title class="text-center">Order summary</mat-card-title>
+      <mat-card-subtitle>Total Items: {{cartItems().length}}</mat-card-subtitle>
+      <mat-card-subtitle>Total Quantity: {{cartCount()}}</mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-divider></mat-divider>
+  </mat-card-header>
+  <mat-card-content class="label-value-pair">
+    <div class="summary-list">
+      <dl class="label">
+        <dt>Original price</dt>
+        <dd class="value">{{ subTotal() | currency }}</dd>
+      </dl>
+      <!-- <dl>
+        <dt>Savings</dt>
+        <dd class="text-green">{{savings() | currency}}</dd>
+      </dl> -->
 
+      <dl>
+        <dt class="label">Delivery Fee</dt>
+        @if (deliveryFee()) {
+        <dd class="value">{{deliveryFee() | currency:'USD':'symbol'}}</dd>
+        } @else if(!(deliveryFee())) {
+        <dd class="value" style='color:red'>Free</dd>
+        }
+      </dl>
+
+      <dl>
+        <dt class="label">Tax</dt>
+        <dd class="value">{{tax() | currency}}</dd>
+      </dl>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="summary-total">
+      <dl>
+        <dt>Total</dt>
+        <dd>{{ totalPrice() | currency:'USD':'symbol' }}</dd>
+      </dl>
+    </div>
+  </mat-card-content>
+  <!-- <mat-card-actions class="summary-actions">
+    <button mat-stroked-button color="primary" routerLink="/sw-app">Continue Shopping</button>
+    <button mat-flat-button color="primary">Checkout</button>
+  </mat-card-actions> -->
+</mat-card>
 } @else {
-<p noItems> No items in cart</p>
+  <p noItems> No items in cart</p>
 }
 <ng-template #noItems>
   No items in cart

@@ -27,7 +27,7 @@ import { MatSelectModule } from '@angular/material/select';
 export class CartItemComponent {
 
   cartService = inject(CartService);
-  
+
   // Use modern signal-based input
   item = input.required<CartItem>();
 
@@ -53,5 +53,16 @@ export class CartItemComponent {
 
   onRemove(): void {
     this.cartService.removeFromCart(this.item());
+  }
+
+  removeItem(): void {
+    this.cartService.removeFromCart(this.item());
+  }
+
+  incrementItem(): void {
+    this.cartService.updateInCart(this.item(), this.item().quantity + 1);
+  }
+  decrementItem(): void {
+    this.cartService.updateInCart(this.item(), this.item().quantity - 1);
   }
 }

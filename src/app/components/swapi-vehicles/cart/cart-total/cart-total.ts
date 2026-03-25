@@ -3,11 +3,12 @@ import { CommonModule, } from '@angular/common';
 import { CartService } from '../cart.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'cart-total',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatDividerModule],
+  imports: [CommonModule, MatCardModule, MatDividerModule, RouterLink],
   templateUrl: './cart-total.html',
   styleUrls: ['./cart-total.scss'],
 })

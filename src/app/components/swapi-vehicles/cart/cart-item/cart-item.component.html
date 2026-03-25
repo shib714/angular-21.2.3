@@ -1,4 +1,4 @@
-@if (item(); as cartItem) {
+@if (item(); as item) {
 <mat-card appearance="filled">
   <mat-card-header>
     <mat-card-title>Cart Item</mat-card-title>
@@ -10,12 +10,12 @@
 
   <mat-card-content class="label-value-pair">
     <span class="label">Name:</span>
-    <span class="value">{{cartItem.vehicle.name}}</span>
+    <span class="value">{{item.vehicle.name}}</span>
   </mat-card-content>
 
   <mat-card-content class="label-value-pair">
     <span class="label"> Class: </span>
-    <span class="value">{{cartItem.vehicle.vehicle_class}}</span>
+    <span class="value">{{item.vehicle.vehicle_class}}</span>
   </mat-card-content>
   <mat-card-content class="label-value-pair">
     <span class="label">Price (credits):</span>
@@ -24,15 +24,21 @@
   <mat-card-content class="label-value-pair">
     <span class="label">Quantity:</span>
     <span class="value">
-
-      <mat-form-field appearance="outline">
+        <button mat-icon-button (click)="decrementItem()" [disabled]="item.quantity === 1">
+          <mat-icon>remove</mat-icon>
+        </button>
+        <span>{{ item.quantity }}</span>
+        <button mat-icon-button (click)="incrementItem()">
+          <mat-icon>add</mat-icon>
+        </button>
+       <!-- <mat-form-field appearance="outline">
         <mat-label>Select a quantity</mat-label>
-        <mat-select [ngModel]="cartItem.quantity" (selectionChange)="onSelectionChange($any($event.source).value)">
+        <mat-select [ngModel]="item.quantity" (selectionChange)="onSelectionChange($any($event.source).value)">
           @for (q of qtyArr(); track q) {
           <mat-option [value]="q" >{{ q }}</mat-option>
           }
         </mat-select>
-      </mat-form-field>
+      </mat-form-field> -->
     </span>
   </mat-card-content>
   <mat-card-content class="label-value-pair">
@@ -40,5 +46,4 @@
     <span class="value">{{exPrice() | currency:'USD':'symbol'}}</span>
   </mat-card-content>
 </mat-card>
-
 }
