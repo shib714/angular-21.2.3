@@ -80,6 +80,8 @@ export const userNameValidationSchema = schema<{ userName: string }>((path) => {
     //The above validateHttp fires every key stroke which is undesireable
     //For strictier control to be 100% sure that the HTTP call only fires when certain conditions are met (like a minimum length), wrap the 
     //validateHttp in an applyWhen
+
+    //version 22 has better debounce approach; watch this https://www.youtube.com/watch?v=jKffTaEL1JI
     applyWhen(
         path.userName,
         (ctx) => ctx.value().length >= 4, // Only even consider the HTTP check if len >= 4

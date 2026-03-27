@@ -1,0 +1,52 @@
+.debug {
+  color: rgba(hsl(0, 100%, 2%), 0.4);
+  border: 1px solid;
+  border-radius: 8px;
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.debug h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.debug-section {
+  margin-bottom: 1.25rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+pre {
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.8125rem;
+  border: 1px solid;
+  line-height: 1.5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.valid {
+  color: #059669;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.invalid {
+  color: #dc2626;
+  font-weight: 600;
+  font-size: 0.875rem;
+}

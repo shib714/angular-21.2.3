@@ -1,0 +1,24 @@
+.container {
+  align-items: flex-start;
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+form {
+  flex: 1.5;
+  margin-bottom: 2rem;
+  max-width: 900px;
+}
+
+.actions {
+  margin-block: 2rem 3rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+app-debug-panel {
+  flex: 1;
+}

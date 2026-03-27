@@ -33,6 +33,11 @@ export const routes: Routes = [
         loadComponent: () => import('./components/shopping-cart/cart/cart-list/cart-list')
             .then((m) => m.CartList), title: 'Sgopping Cart'
     },
+    
+    {
+        path: 'composable-form', loadComponent: () => import('./components/signal-form/composable-form/composable-form')
+            .then((m) => m.ComposableForm), title: 'Composable signal Form'
+    },
 
 
 ];
