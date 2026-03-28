@@ -1,5 +1,7 @@
 import { apply, applyWhen, debounce, disabled, minLength, required, schema, validate, validateHttp } from "@angular/forms/signals"
 import { environment } from "../../../environments/env.dev";
+import { userNameSchema } from "./userNameSchema";
+import { UserService } from "./user.service";
 
 
 export interface Profile {
@@ -26,9 +28,12 @@ export const defaultProfile: Profile = {
     emergencyContactPhone: '',
 }
 
+//altername way to use userService
+//export const profileValidationSchema = (userService: UserService) => schema<Profile>((path) => {
 export const profileValidationSchema = schema<Profile>((path) => {
     //validate userName
-    apply(path, userNameValidationSchema);
+     //apply(path, userNameSchema(userService)); //uncomment this if using userNameSchema with userService
+    apply(path, userNameValidationSchema);   
     //validate firstName
     required(path.firstName, { message: 'First Name is required' });
     //validate lastName

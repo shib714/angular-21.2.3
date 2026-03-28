@@ -18,7 +18,7 @@ export const userNameSchema = (userService: UserService) => schema<{ userName: s
 
     debounce(path.userName, 300);
 
-    //we could also use validateAsync() function with the help of userService: see line 5 above
+    //we could also use validateAsync() function with the help of userService:
     //Here is the working code for validateAsync:
     //Please see angular doc at: https://angular.dev/guide/forms/signals/async-operations
     validateAsync(path.userName, {

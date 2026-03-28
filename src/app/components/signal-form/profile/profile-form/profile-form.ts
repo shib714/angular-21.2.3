@@ -11,6 +11,7 @@ import { MatDatepickerModule, MatDatepickerInputEvent } from '@angular/material/
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { FieldError } from '../../../../common/utils/field-error';
+import { UserService } from '../user.service';
 
 
 @Component({
@@ -34,8 +35,10 @@ import { FieldError } from '../../../../common/utils/field-error';
 
 })
 export class ProfileForm {
+    //private readonly userService = inject(UserService);
 
   profileModel = signal<Profile>(defaultProfile);
+  //profileForm = form(this.profileModel, profileValidationSchema(this.userService));
   profileForm = form(this.profileModel, profileValidationSchema);
 
   cancel(): void {
