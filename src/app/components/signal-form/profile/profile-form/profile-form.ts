@@ -48,6 +48,7 @@ export class ProfileForm {
       this.onSubmit());
   }
   //https://angular.dev/tutorials/signal-forms/5-add-submission
+  //https://angular.love/signal-forms-in-angular-21-complete-guide
   async onSubmit() {
     // Submit to the server
     console.log('Submitting data to server:', this.profileForm().value());

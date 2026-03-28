@@ -41,7 +41,7 @@ export const profileValidationSchema = schema<Profile>((path) => {
     apply(path, emergencyContactValidationSchema);
 
 })
-
+//an alternate validation is provided in userNameSchema.ts file
 export const userNameValidationSchema = schema<{ userName: string }>((path) => {
     required(path.userName, { message: 'User Name is required' });
     // validate(path.userName, ({ value }) => {

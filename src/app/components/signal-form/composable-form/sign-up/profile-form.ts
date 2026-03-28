@@ -50,6 +50,7 @@ export class ProfileForm {
     buildPreferencesSection(s.preferences);
   });
 
+  //https://angular.love/signal-forms-in-angular-21-complete-guide
   protected onSubmit(event: SubmitEvent): void {
     event.preventDefault();
     //form can only be submitted when it is valid
