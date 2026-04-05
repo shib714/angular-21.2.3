@@ -64,6 +64,7 @@ export interface IProduct {
     image: string;
     rating: Rating;
     quantity: number;
+
 }
 
 export interface Rating {

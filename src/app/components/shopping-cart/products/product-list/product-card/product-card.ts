@@ -4,14 +4,14 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 
 import { MatButtonModule } from '@angular/material/button';
-import { IProduct } from '../../product.service';
+import { IProduct, Rating } from '../../product.service';
 import { CartService } from '../../../cart/cart.service';
-//import { CartService } from '../../../cart/cart.service';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
   selector: 'product-card',
-  imports: [CommonModule, MatCardModule, MatButtonModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule],
   template: `
     <mat-card>
       <mat-card-header>       
@@ -22,6 +22,12 @@ import { CartService } from '../../../cart/cart.service';
       <mat-card-content>
         <p>{{ product().description.substring(0, 100)}}...</p>
         <p class="price">{{ product().price | currency: 'CAD' }}</p>
+        <p class="rating">
+          <mat-icon>star</mat-icon>
+          {{ product().rating.rate }}
+          <mat-icon>thumb_up</mat-icon>
+          {{ product().rating.count }}
+        </p>       
       </mat-card-content>
       <mat-card-actions>
         <button mat-button (click)="addToCart(product())">Add to cart</button>
@@ -32,6 +38,7 @@ import { CartService } from '../../../cart/cart.service';
 export class ProductCard {
     
   product = input.required<IProduct>();
+  //rating = input.required<Rating>();
   productAdded = output<IProduct>();
   cartService = inject(CartService);
 
