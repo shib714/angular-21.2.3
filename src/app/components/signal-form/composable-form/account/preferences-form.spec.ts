@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PreferenceForm } from './preferences-form';
+import { PreferencesForm } from './preferences-form';
 
 describe('PreferenceForm', () => {
-  let component: PreferenceForm;
-  let fixture: ComponentFixture<PreferenceForm>;
+  let component: PreferencesForm;
+  let fixture: ComponentFixture<PreferencesForm>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PreferenceForm],
+      imports: [PreferencesForm],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PreferenceForm);
+    fixture = TestBed.createComponent(PreferencesForm);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
