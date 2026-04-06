@@ -1,4 +1,4 @@
-ProfileForm Component Tests Documentation:
+## ProfileForm Component Tests Documentation:
 
 File Path: src/app/components/signal-form/profile/profile-form/profile-form.spec.ts
 
@@ -7,12 +7,12 @@ To run this test, use the command:
 ```bash
 ng test --include src/app/components/signal-form/profile/profile-form/profile-form.spec.ts --ui --coverage
 ````
-Overview:
+## Overview:
 
 These tests verify the behavior of the ProfileForm component, specifically focusing on its integration with @angular/forms/signals 
 for complex validation logic, including cross-field validation, asynchronous HTTP-based validation, and conditional validation.    
 
-Test Environment Setup:
+## Test Environment Setup:
 
 The tests are written using Vitest and the standard Angular Testing Utilities.
 
@@ -26,7 +26,7 @@ Helper Functions
 
 ---
 
-Test Cases
+## Test Cases
 
 1. Component Creation
 - Objective: Ensure the component is correctly instantiated.
@@ -80,7 +80,7 @@ B. Username Available
 
 ---
 
-Key Testing Patterns Demonstrated
+## Key Testing Patterns Demonstrated
 - Signal Interaction: Direct manipulation of signal values within the form (form.field().value.set(...)).
 - Async Handling: Using await delay(...) combined with await fixture.whenStable() to handle debounced and HTTP-based async        
     validations.
