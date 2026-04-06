@@ -25,7 +25,7 @@ describe('ProfileForm', () => {
     vi.unstubAllGlobals();
   });
 
-  it('should create', () => {
+  it.only('should create', () => {
     expect(component).toBeTruthy();
   });
 
@@ -33,7 +33,7 @@ describe('ProfileForm', () => {
     expect(component.profileForm().invalid()).toBe(true);
   });
 
-  it('should validate password mismatch', () => {
+  it.only('should validate password mismatch', () => {
     const form = component.profileForm;
     form.password().value.set('password123');
     form.confirmPassword().value.set('different123');

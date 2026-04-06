@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { ProductCard } from "./product-card/product-card";
 import { CommonModule } from "@angular/common";
 import { IProduct, ProductService } from "../product.service";
@@ -15,7 +15,8 @@ import { IProduct, ProductService } from "../product.service";
         }
     <!-- </div> -->
     `,
-    styleUrl: './product-list.scss'
+    styleUrl: './product-list.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductList {
 
