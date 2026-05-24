@@ -22,7 +22,7 @@ import { Account } from './account';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccountForm {
-    //add an input called form as a field tree using the Account interface
+  //add an input called form as a field tree using the Account interface
   //this tells angular that this component only cares about the account slice
   readonly form = input.required<FieldTree<Account>>();
 }
