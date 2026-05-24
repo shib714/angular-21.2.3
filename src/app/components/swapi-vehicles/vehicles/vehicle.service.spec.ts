@@ -43,6 +43,17 @@ describe('VehicleService', () => {
   const mockFilm = { title: 'A New Hope' };
 
   beforeEach(() => {
+    /**Because the service uses a hybrid approach for data fetching, 
+     the test must handle  both:
+  
+     1. HttpClient (for Vehicles): This is mocked using provideHttpClientTesting() and
+      HttpTestingController. This is why you see httpMock.expectOne(...) in the
+      tests.
+    2. Native fetch (for Films): Since the resource loader bypasses Angular's
+      HttpClient and calls the browser's global fetch directly, HttpTestingController
+      cannot intercept it. To verify and control these requests, we must mock the
+      global fetch object using Vitest's vi.stubGlobal.
+    */
     vi.stubGlobal('fetch', vi.fn());
 
     TestBed.configureTestingModule({
@@ -81,6 +92,12 @@ describe('VehicleService', () => {
   });
 
   it('should load films for selected vehicle', async () => {
+    /**
+     The test case specifically verifies the film loading logic. 
+     If we didn't stub fetch, that test would attempt to make a
+     real network request to the SWAPI servers, which would likely fail in a CI/test
+     environment and make the tests non-deterministic.
+     */
     // Flush initial load
     httpMock.expectOne(environment.VEHICLE_URL).flush(mockVehicles);
 
@@ -90,7 +107,7 @@ describe('VehicleService', () => {
     } as Response);
 
     service.vehicleSelected('Sand Crawler');
-    
+
     // Wait for the resource loader (Angular 21 resource uses microtasks)
     await new Promise(res => setTimeout(res, 100));
 

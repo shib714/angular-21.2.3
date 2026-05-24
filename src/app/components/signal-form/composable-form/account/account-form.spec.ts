@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { form } from '@angular/forms/signals';
 import { AccountForm } from './account-form';
+import { createAccountModel, buildAccountSection } from './account';
 
 describe('AccountForm', () => {
   let component: AccountForm;
@@ -13,6 +14,14 @@ describe('AccountForm', () => {
 
     fixture = TestBed.createComponent(AccountForm);
     component = fixture.componentInstance;
+    
+    // Provide the required input
+    //stricter  
+  //required input checks introduced in the updated version of      
+  //@angular/forms/signals
+    const accountForm = TestBed.runInInjectionContext(() => form(createAccountModel(), buildAccountSection));
+    fixture.componentRef.setInput('form', accountForm);
+    
     await fixture.whenStable();
   });
 
